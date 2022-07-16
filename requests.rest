@@ -1,12 +1,17 @@
-GET http://localhost:3003/
+@token=
 
-###
-POST http://localhost:3003/
+### getBand
+GET http://localhost:3003/band?name=pink
+
+### Register Band
+POST http://localhost:3003/band/register
 Content-Type: application/json
+Authorization: {{token}}
 
 {
-   "name":"Batman",
-   "movie": "Justice League"
+   "name":"The Score",
+   "musicGenre": "Rock Alternativo",
+   "responsible": "Eddie Anthony"
 }
 
 ###
