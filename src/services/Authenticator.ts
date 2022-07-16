@@ -1,5 +1,5 @@
 import * as jwt from "jsonwebtoken";
-import { AuthenticationData } from "../model/AuthenticationData";
+import { AuthenticationData } from "../types/AuthenticationData";
 
 export class Authenticator {
 
