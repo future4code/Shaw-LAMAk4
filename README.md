@@ -37,7 +37,7 @@ Possui 3 entidades importantes:
 
 ## Documentação
 
-[Clique para acessar a documentação.](https://documenter.getpostman.com/view/20355093/UzBsHPxC#intro)
+[Clique para acessar a documentação.](https://documenter.getpostman.com/view/20351968/UzQxMPeE)
 
 ## Deploy
 
