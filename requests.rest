@@ -1,13 +1,53 @@
-GET http://localhost:3003/
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI5MWRhMmU4LTk1ZDctNGIzYi04OWRlLWNlYWNiZTM3YWQzMiIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2NTgxMzg0OTYsImV4cCI6MTY1ODU3MDQ5Nn0.x7ZtHBvGfOkp3vhtFMIAlBZec2chW6O-hOIBgBiCdOg
 
-###
-POST http://localhost:3003/
+### signup
+POST http://localhost:3003/user/signup
 Content-Type: application/json
 
 {
-   "name":"Batman",
-   "movie": "Justice League"
+   "name": "Layane Bastos",
+   "email": "lay@shaw.com", 
+   "password":"123456", 
+   "role":"NORMAL"
 }
 
+### login
+POST http://localhost:3003/user/login
+Content-Type: application/json
+
+{
+   "email": "lay@shaw.com", 
+   "password":"123456"
+}
+
+### Register Band
+POST http://localhost:3003/band/register
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+   "name":"The Score 2",
+   "musicGenre": "Rock Alternativo",
+   "responsible": "Eddie Anthony"
+}
+
+### getBand
+GET http://localhost:3003/band?name=The Score
+Authorization: {{token}}
+
+
+### getShowsByDay
+GET http://localhost:3003/show/SUN
+Authorization: {{token}}
+
 ###
-DELETE http://localhost:3003/
+POST http://localhost:3003/show/register
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+   "day":"FRI",
+   "startingTime": 19,
+   "endingTime": 21,
+   "id": "002"
+}
