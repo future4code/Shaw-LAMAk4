@@ -7,8 +7,6 @@ import { LoginInputDTO } from "../types/LoginInputDTO";
 import { SignupInputDTO } from "../types/SignupInputDTO"
 import { InvalidInputError } from "./errors/InvalidInputError";
 import { NotFoundError } from "./errors/NotFoundError";
-import { DAY, MarcarShow } from "../types/MarcarShow";
-import { CustomError } from "./errors/CustomError";
 
 export class UserBusiness {
     constructor(
@@ -74,30 +72,5 @@ export class UserBusiness {
         })
 
         return token
-    }
-
-    setShow = async (dia: MarcarShow) => {
-        const { day, startingTime, endingTime } = dia
-
-        if(!day || !startingTime || !endingTime) {
-            throw new InvalidInputError("Invalid input. day and time are required")
-        }
-
-        if(day !== DAY.FRIDAY && day !== DAY.SATURDAY && day !== DAY.SUNDAY){
-            throw new CustomError(400, "day must be FRIDAY, SUNDAY OR SATURDAY")
-        }
-
-        if (startingTime < 8 || startingTime > 22) {
-            throw new CustomError(400, "The starting time must be between 8h and 22h")
-        }
-
-        if (endingTime < 9 || endingTime > 23) {
-            throw new CustomError(400, "The ending time must be between 9 and 23")
-        }
-
-        const showFromDB = await this.userDatabase.getShowByDayAndTime(day)
-        // 9 - 12 : 11 - 13
-        /* 8 - 11 : 12 - 14 : 16 - 18*/
-        // if()
     }
 }

@@ -15,3 +15,4 @@ const showController = new ShowController(
 export const showRouter = express.Router()
 
 showRouter.get('/:day', showController.getShowsByDay) 
+showRouter.post('/register', showController.setShow) 

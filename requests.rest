@@ -39,3 +39,15 @@ Authorization: {{token}}
 ### getShowsByDay
 GET http://localhost:3003/show/SUN
 Authorization: {{token}}
+
+###
+POST http://localhost:3003/show/register
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+   "day":"FRI",
+   "startingTime": 19,
+   "endingTime": 21,
+   "id": "002"
+}
