@@ -1,4 +1,49 @@
 # Labenu Music Awards
-Como você deve saber muito bem, o nosso querido chefinho Astrodev é uma pessoa com Networking incrível e ele conhece vários artistas estrelados. Além disso, ele também é um grande ~~megalomaníaco~~ visionário e está planejando fazer um grande evento: o **LAMA**, *Labenu Musical Awards*, um festival  com várias bandas famosas para a formatura da sua turma e, no final, vocês podem eleger a banda que mais gostaram! Entretanto, na opinião dele, vocês só serão merecedores se entregarem um sistema impecável que permita o gerenciamento completo desses shows.
 
-Para isso já deixamos algumas tabelas prontas para vocês não precisarem se preocupar com a modelagem do banco. Deixamos também um template do projeto já com a estrutura da parte de usuários. Vocês podem usá-las a vontade, mas, se quiser fazer do zero sem esse auxílio, também pode.
+Projeto proposto pela instituição Labenu.
+Sistema que represente o básico da organização.
+
+Possui 3 entidades importantes:
+
+ 1. Estudantes
+
+       Todo estudante é composto das seguintes características: id, nome, email, data de aniversário, id da turma, e os principais hobbies dele.
+
+ 2. Docente
+
+       Todo docente é composto das seguintes características: id, nome, email, data de aniversário, id da turma, e todas as especialidades dele. Há 5 especialidades: JS, CSS, React, Typescript, OOP (Programação orientada a objetos).
+
+ 3. Turma
+ 
+       Toda turma é composta das seguintes características: id, nome e módulo.
+
+
+## Funcionalidades
+
+1. Estudante
+    - Criar estudante;
+    - Buscar estudante por nome;
+    - Mudar estudante de turma.
+
+2. Docente
+    - Criar docente;
+    - Buscar todos os docentes;
+    - Mudar docente de turma.
+
+3. Turma
+    - Criar turma;
+    - Buscar turmas ativas;
+    - Mudar turma de módulo.
+
+## Documentação
+
+[Clique para acessar a documentação.](https://documenter.getpostman.com/view/20355093/UzBsHPxC#intro)
+
+## Deploy
+
+[Clique para acessar o deploy.](https://lamashaw4.herokuapp.com/)
+
+## DEV's
+
+| [<img src="https://avatars.githubusercontent.com/u/98998030?v=4" width=115><br><sub>Matheus Martinelle Barros</sub>](https://github.com/MatthsMB) | [<img src="https://avatars.githubusercontent.com/u/50851374?v=4" width=115><br><sub>Layane Bastos Juvito</sub>](https://github.com/LayaneB) | [<img src="https://avatars.githubusercontent.com/u/98968318?v=4" width=115><br><sub>Matheus Moraes</sub>](https://github.com/matesuboy) |  
+| :---: | :---: | :---: |
