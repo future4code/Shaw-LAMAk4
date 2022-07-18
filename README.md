@@ -20,20 +20,17 @@ Possui 3 entidades importantes:
 
 ## Funcionalidades
 
-1. Estudante
-    - Criar estudante;
-    - Buscar estudante por nome;
-    - Mudar estudante de turma.
+1. Usuário
+    - Criar usuário;
+    - Fazer login.
 
-2. Docente
-    - Criar docente;
-    - Buscar todos os docentes;
-    - Mudar docente de turma.
+2. Banda
+    - Criar Banda;
+    - Visualizar detalhes de uma banda;
 
-3. Turma
-    - Criar turma;
-    - Buscar turmas ativas;
-    - Mudar turma de módulo.
+3. Shows
+    - Criar show;
+    - Buscar todos os shows de uma data;
 
 ## Documentação
 
