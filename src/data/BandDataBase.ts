@@ -17,10 +17,12 @@ export class BandDataBase extends BaseDataBase {
             .into(tableName);
     }
 
-    public getBandByIdOrName = async (id: string, name: string): Promise<bandDataBaseOutput[]> => {
+    public getBandByIdOrName = async (id: string = "VAZIO", name: string = "VAZIO"): Promise<bandDataBaseOutput[]> => {
+        
         const band: bandDataBaseOutput[] = await BaseDataBase.connection()
             .select("id", "name", "music_genre as musicGenre", "responsible")
-            .where("id OR name", { id, name })
+            .where({id})
+            .orWhere({name})
             .from(tableName)
 
         return band
@@ -49,7 +51,6 @@ export class BandDataBase extends BaseDataBase {
             .select("id", "name", "music_genre as musicGenre", "responsible")
             .where({ responsible })
             .from(tableName)
-
         return band
     }
 }

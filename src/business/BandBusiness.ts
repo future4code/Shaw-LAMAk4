@@ -44,12 +44,11 @@ export class BandBusiness {
                 throw new CustomError(409, "This band name is already registered in the system.")
             }
 
-            const checkBandResponsible: bandDataBaseOutput[] = await this.bandDatabase.getBandByName(responsible)
+            const checkBandResponsible: bandDataBaseOutput[] = await this.bandDatabase.getBandByResponsible(responsible)
 
             if (checkBandResponsible.length > 0) {
                 throw new CustomError(409, "This person is already responsible for another band.")
             }
-
 
             const id = IdGenerator.idGenerator()
 

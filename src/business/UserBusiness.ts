@@ -98,6 +98,6 @@ export class UserBusiness {
         const showFromDB = await this.userDatabase.getShowByDayAndTime(day)
         // 9 - 12 : 11 - 13
         /* 8 - 11 : 12 - 14 : 16 - 18*/
-        if()
+        // if()
     }
 }
