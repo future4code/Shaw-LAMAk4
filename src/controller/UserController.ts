@@ -42,15 +42,15 @@ export class UserController {
         }
     }
 
-    marcarShow = async (req: Request, res: Response) => {
-        try {
-            const { day, startingTime, endingTime } = req.body
+    // marcarShow = async (req: Request, res: Response) => {
+    //     try {
+    //         const { day, startingTime, endingTime } = req.body
 
-            const marcar = await this.userBusiness.setShow()
-        } catch (error) {
+    //         // const marcar = await this.userBusiness.setShow()
+    //     } catch (error) {
             
-        }
-    }
+    //     }
+    // }
 }
 
 //  Para cadastrar um show, o endpoint precisa do id da banda, o dia (sexta, sábado ou domingo) e o horário em que ela irá se apresentar.
