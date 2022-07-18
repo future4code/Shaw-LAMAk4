@@ -25,7 +25,7 @@ export class User {
         return this.password
     }
 
-    public getRole() {
+    public getRole(): ROLE {
         return this.role
     }
     static toUserModel(user: any): User {
