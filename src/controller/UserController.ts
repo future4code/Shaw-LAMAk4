@@ -42,22 +42,15 @@ export class UserController {
         }
     }
 
-    // marcarShow = async (req: Request, res: Response) => {
-    //     try {
-    //         const { day, startingTime, endingTime } = req.body
+    marcarShow = async (req: Request, res: Response) => {
+        try {
+            const { day, startingTime, endingTime, id } = req.body
 
-    //         // const marcar = await this.userBusiness.setShow()
-    //     } catch (error) {
-            
-    //     }
-    // }
+            await this.userBusiness.setShow({day, startingTime, endingTime, id})
+
+            res.send(`Show registered: ${day}, from ${startingTime}:00 to ${endingTime}:00`)
+        } catch (error: any) {
+            res.send(error.sqlMessage || error.message)
+        }
+    }
 }
-
-//  Para cadastrar um show, o endpoint precisa do id da banda, o dia (sexta, sábado ou domingo) e o horário em que ela irá se apresentar.
-//  Deve haver uma validação para indicar se o horário é válido (ou seja, se está entre 08h e 23h). 
-//  Além disso os shows só podem ser marcados em horários redondos,
-//  ou seja, pode ser 08h - 09h ou 09h - 13h mas não pode ser 09h - 10h30 ou 10h30 - 14h.
-
-// Caso já exista um show marcado para o dia e o horário em questão, o seu endpoint deve retornar um erro. 
-// Faça ao menos dois testes para checar se os dados estão corretos, 
-// sendo um em caso de erro e outro em caso de show em data repetida.

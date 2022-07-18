@@ -7,5 +7,6 @@ export enum DAY {
 export type MarcarShow = {
     day: DAY,
     startingTime: number,
-    endingTime: number
+    endingTime: number,
+    id: string
 }

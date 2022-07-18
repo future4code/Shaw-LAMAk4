@@ -19,7 +19,6 @@ export class UserDatabase extends BaseDataBase {
                 })
                 .into(UserDatabase.TABLE_NAME)
         } catch (error: any) {
-            console.log(error)
             throw new Error(error.sqlMessage || error.message)
         }
     }
@@ -53,25 +52,29 @@ export class UserDatabase extends BaseDataBase {
     getShowByDayAndTime = async (day: DAY) => {
         try {
             const result = await BaseDataBase.connection()
-                .select("*")
+                .select("start_time", "end_time")
                 .from(UserDatabase.LAMA_SHOW)
                 .where({week_day: day})
             
-            return result[0] && SetShow.toUserModel(result[0])
+            return result
         } catch (error: any) {
             throw new Error(error.sqlMessage || error.message)
         }
     }
 
-    insertShow = async (dia: SetShow) => {
+    insertShow = async (show: SetShow) => {
         try {
             await BaseDataBase.connection()
             .insert({
-                
+                id: show.getId(),
+                week_day: show.getDay(),
+                start_time: show.getStartingTime(),
+                end_time: show.getEndingTime(),
+                band_id: show.getBandId()
             })
-            .into(UserDatabase.TABLE_NAME)
+            .into(UserDatabase.LAMA_SHOW)
         } catch (error: any) {
-            
+            throw new Error(error.sqlMessage || error.message)
         }
     }
 }

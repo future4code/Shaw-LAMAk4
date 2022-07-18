@@ -9,6 +9,7 @@ import { InvalidInputError } from "./errors/InvalidInputError";
 import { NotFoundError } from "./errors/NotFoundError";
 import { DAY, MarcarShow } from "../types/MarcarShow";
 import { CustomError } from "./errors/CustomError";
+import { SetShow } from "../model/SetShow";
 
 export class UserBusiness {
     constructor(
@@ -77,9 +78,9 @@ export class UserBusiness {
     }
 
     setShow = async (dia: MarcarShow) => {
-        const { day, startingTime, endingTime } = dia
+        const { day, startingTime, endingTime, id } = dia
 
-        if(!day || !startingTime || !endingTime) {
+        if(!day || !startingTime || !endingTime || !id) {
             throw new InvalidInputError("Invalid input. day and time are required")
         }
 
@@ -96,8 +97,26 @@ export class UserBusiness {
         }
 
         const showFromDB = await this.userDatabase.getShowByDayAndTime(day)
-        // 9 - 12 : 11 - 13
-        /* 8 - 11 : 12 - 14 : 16 - 18*/
-        // if()
+
+        showFromDB.forEach((show)=>{
+            if(show.start_time<startingTime && show.end_time>startingTime){
+                throw new CustomError(409, `Starting time not available, ${show.start_time}:00 - ${show.end_time}:00`)
+            }
+            if(show.start_time<endingTime && show.end_time>endingTime){
+                throw new CustomError(409, `Ending time not available, ${show.start_time}:00 - ${show.end_time}:00`)
+            }
+            if(show.start_time>startingTime&&show.start_time<endingTime){
+                throw new CustomError(409, `Ending time not available, another show starts before the wanted ending time, ${show.start_time}:00 - ${show.end_time}:00`)
+            }
+            if(show.end_time>startingTime&&show.end_time<endingTime){
+                throw new CustomError(409, `Time not available, ${show.start_time}:00 - ${show.end_time}:00`)
+            }
+        })
+
+        const showId = IdGenerator.idGenerator()
+
+        const show = new SetShow(showId, day, startingTime, endingTime, id)
+
+        await this.userDatabase.insertShow(show)
     }
 }
