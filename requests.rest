@@ -41,7 +41,7 @@ GET http://localhost:3003/show/SUN
 Authorization: {{token}}
 
 ###
-POST http://localhost:3003/user/show/register
+POST http://localhost:3003/show/register
 Content-Type: application/json
 Authorization: {{token}}
 

@@ -28,4 +28,16 @@ export class ShowController {
             }
         }
     }
+
+    setShow = async (req: Request, res: Response) => {
+        try {
+            const { day, startingTime, endingTime, id } = req.body
+
+            await this.showBusiness.setShow({day, startingTime, endingTime, id})
+
+            res.send(`Show registered: ${day}, from ${startingTime}:00 to ${endingTime}:00`)
+        } catch (error: any) {
+            res.send(error.sqlMessage || error.message)
+        }
+    }
 }

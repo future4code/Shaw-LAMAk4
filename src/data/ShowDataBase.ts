@@ -1,3 +1,5 @@
+import { SetShow } from '../model/SetShow'
+import { DAY } from '../types/MarcarShow'
 import { ShowDataBaseOutput } from '../types/ShowDataBaseOutput'
 import { BaseDataBase } from './BaseDataBase'
 
@@ -13,5 +15,34 @@ export class ShowDataBase extends BaseDataBase {
             .orderBy("start_time")
 
         return shows
+    }
+
+    getShowByDayAndTime = async (day: DAY) => {
+        try {
+            const result = await BaseDataBase.connection()
+                .select("start_time", "end_time")
+                .from(tableName)
+                .where({week_day: day})
+            
+            return result
+        } catch (error: any) {
+            throw new Error(error.sqlMessage || error.message)
+        }
+    }
+
+    insertShow = async (show: SetShow) => {
+        try {
+            await BaseDataBase.connection()
+            .insert({
+                id: show.getId(),
+                week_day: show.getDay(),
+                start_time: show.getStartingTime(),
+                end_time: show.getEndingTime(),
+                band_id: show.getBandId()
+            })
+            .into(tableName)
+        } catch (error: any) {
+            throw new Error(error.sqlMessage || error.message)
+        }
     }
 }
