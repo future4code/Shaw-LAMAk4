@@ -1,22 +1,6 @@
 # Labenu Music Awards
 
 Projeto proposto pela instituição Labenu.
-Sistema que represente o básico da organização.
-
-Possui 3 entidades importantes:
-
- 1. Estudantes
-
-       Todo estudante é composto das seguintes características: id, nome, email, data de aniversário, id da turma, e os principais hobbies dele.
-
- 2. Docente
-
-       Todo docente é composto das seguintes características: id, nome, email, data de aniversário, id da turma, e todas as especialidades dele. Há 5 especialidades: JS, CSS, React, Typescript, OOP (Programação orientada a objetos).
-
- 3. Turma
- 
-       Toda turma é composta das seguintes características: id, nome e módulo.
-
 
 ## Funcionalidades
 
