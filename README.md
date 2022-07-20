@@ -1,4 +1,4 @@
-# Labenu Music Awards
+# labenu Music Awards
 
 Projeto proposto pela instituição Labenu.
 
